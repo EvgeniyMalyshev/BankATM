@@ -1,6 +1,5 @@
 package com.atm.currencies;
 
-import com.atm.command.ScanCommand;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,7 +50,7 @@ public class CurrencyHolder {
 
 
     public void putCashIntoHolder(String currencyName, String banknotesValue, Integer banknotesAmount) {
-        currencyCheck(currencyName, numbersOfBanknotes);
+        currencyCheck(currencyName);
         setSumm(currencyName, banknotesValue, banknotesAmount);
         numbersOfBanknotes.put(currencyName, setBanknotes(numbersOfBanknotes.get(currencyName), banknotesValue, banknotesAmount));
         System.out.println("OK");
@@ -78,9 +77,9 @@ public class CurrencyHolder {
         return amountOfBanknotes;
     }
 
-    private void currencyCheck(String currencyName, Map<String, Map<String, Integer>> numbersOfBanknotes) {
-        if (!numbersOfBanknotes.containsKey(currencyName)) {
-            numbersOfBanknotes.put(currencyName, newBanknotesHolder());
+    private void currencyCheck(String currencyName) {
+        if (!CurrencyHolder.numbersOfBanknotes.containsKey(currencyName)) {
+            CurrencyHolder.numbersOfBanknotes.put(currencyName, newBanknotesHolder());
         }
     }
 
