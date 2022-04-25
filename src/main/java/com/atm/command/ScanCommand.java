@@ -1,5 +1,7 @@
 package com.atm.command;
 
+import com.atm.data.Currency;
+import com.atm.service.AtmService;
 import com.atm.util.CheckService;
 import com.atm.util.UserScanner;
 import org.apache.logging.log4j.Level;
@@ -17,13 +19,15 @@ public class ScanCommand implements Command {
     private final BalanceCommand balanceCommand;
     private final CheckService checkService;
     private final UserScanner userScanner;
+    private final AtmService atmService;
 
-    public ScanCommand(InputCommand inputCommand, OutputCommand outputCommand, BalanceCommand balanceCommand, CheckService checkService, UserScanner userScanner) {
+    public ScanCommand(InputCommand inputCommand, OutputCommand outputCommand, BalanceCommand balanceCommand, CheckService checkService, UserScanner userScanner, AtmService atmService) {
         this.inputCommand = inputCommand;
         this.outputCommand = outputCommand;
         this.balanceCommand = balanceCommand;
         this.checkService = checkService;
         this.userScanner = userScanner;
+        this.atmService = atmService;
     }
 
     @Override

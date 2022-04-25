@@ -26,8 +26,8 @@ public class CurrencyHolder {
         Set<String> values = currencyMap.keySet();
         StringBuilder answer = new StringBuilder();
         for (String value : values) {
-            int tempCount = 0;
             int countOfBanknotes = currencyMap.get(value);
+            int tempCount = 0;
             for (int i = 0; i < countOfBanknotes; i++) {
                 if (tempSum != 0 && (tempSum - Integer.parseInt(value) >= 0)) {
                     tempSum = tempSum - Integer.parseInt(value);

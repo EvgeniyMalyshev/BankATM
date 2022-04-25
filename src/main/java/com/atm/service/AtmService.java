@@ -5,6 +5,7 @@ import com.atm.repository.CurrencyRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,7 +18,17 @@ public class AtmService {
     }
 
     @Transactional
-    Optional<Currency> getCurrencyById(Long id){
+    public Optional<Currency> getCurrencyById(Long id){
        return currencyRepo.findById(id);
     }
+    @Transactional
+    public void saveCurrency(Currency currency){
+        currencyRepo.save(currency);
+    }
+    @Transactional
+    public List<Currency> getAllCurrencies(){
+        return (List<Currency>) currencyRepo.findAll();
+    }
+
+
 }

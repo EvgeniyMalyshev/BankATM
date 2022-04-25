@@ -26,8 +26,9 @@ public class OutputCommand implements Command {
         String inputValue = userScanner.getScanner().next();
         if (checkService.currencyCheck(inputCurrency)
                 && checkService.valueCheck(inputValue)) {
-            System.out.println(currencyHolder.getCashFromHolder(inputCurrency, inputValue));
-            logger.log(Level.INFO, "User withdraw " + currencyHolder.getCashFromHolder(inputCurrency, inputValue));
+            String withdraw = currencyHolder.getCashFromHolder(inputCurrency, inputValue);
+            System.out.println(withdraw);
+            logger.log(Level.INFO, "User withdraw " + withdraw);
         } else {
             System.out.println("ERROR");
             logger.log(Level.ERROR, "Not enough money to withdraw");
